@@ -62,9 +62,7 @@ handleAdminAction();
 <html>
 <head>
     <title>Admin Panel</title>
-    <style>
-        /* Your CSS styles here */
-    </style>
+    <link rel="stylesheet" href="css/adminstyles.css">
 </head>
 <body>
     <h1>Admin Panel</h1>
