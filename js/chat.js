@@ -30,28 +30,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function fetchMessages() {
         if (!selectedUser) return;
+    
         fetch(`get_messages.php?recid=${selectedUser}`)
             .then(response => response.json())
             .then(data => {
+                const messagesDiv = document.getElementById('messages');
+                const shouldScrollToBottom = messagesDiv.scrollHeight - messagesDiv.scrollTop === messagesDiv.clientHeight;
+    
                 messagesDiv.innerHTML = '';
                 data.forEach(msg => {
                     const messageItem = document.createElement('div');
                     const header = document.createElement('div');
                     const message = document.createElement('div');
-
+    
                     header.className = 'message-header';
                     header.innerHTML = `<span>${msg.sender.toUpperCase()}</span><span>${msg.timestamp}</span>`;
-                    
+    
                     message.className = 'message-content';
                     message.textContent = msg.message;
-
+    
                     messageItem.appendChild(header);
                     messageItem.appendChild(message);
-
+    
                     messagesDiv.appendChild(messageItem);
                 });
+    
+                if (shouldScrollToBottom) {
+                    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                }
             });
-    }
+    }    
 
     messageForm.addEventListener('submit', (e) => {
         e.preventDefault();
