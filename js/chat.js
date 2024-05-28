@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(data => {
                 userList.innerHTML = '';
-                const currentUserID = parseInt(document.body.dataset.userid, 10); // Assuming user ID is stored in a data attribute
+                const currentUserID = parseInt(document.body.dataset.userid, 10);
                 data.forEach(user => {
-                    if (user.id !== currentUserID) { // Hide current logged in user
+                    if (user.id !== currentUserID) {
                         const userItem = document.createElement('li');
                         userItem.textContent = user.username + (user.status === 'on' ? ' (Online)' : ' (Offline)');
                         userItem.dataset.userid = user.id;
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const message = document.createElement('div');
 
                     header.className = 'message-header';
-                    header.innerHTML = `<span>${msg.sender}</span><span>${msg.timestamp}</span>`;
+                    header.innerHTML = `<span>${msg.sender.toUpperCase()}</span><span>${msg.timestamp}</span>`;
                     
                     message.className = 'message-content';
                     message.textContent = msg.message;
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    setInterval(fetchUsers, 5000); // Refresh user list every 5 seconds
-    setInterval(fetchMessages, 3000); // Refresh messages every 3 seconds
-    fetchUsers(); // Initial fetch
+    setInterval(fetchUsers, 5000);
+    setInterval(fetchMessages, 3000);
+    fetchUsers();
 });

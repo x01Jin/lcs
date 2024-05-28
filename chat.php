@@ -18,13 +18,15 @@ $username = $_SESSION['username'];
     <script src="js/chat.js" defer></script>
 </head>
 <body data-userid="<?php echo htmlspecialchars($userid); ?>">
-    <h1>Welcome, <?php echo htmlspecialchars($username); ?>!</h1>
     <div id="chat-container">
         <div id="user-list">
+            <h1>Welcome, <?php echo htmlspecialchars($username); ?>!</h1>
+            ----------------------------------------------
             <h2>Users</h2>
             <ul id="users">
                 <!-- User list will be populated here by JavaScript -->
             </ul>
+            <a href="logout.php" id="logout">Logout</a>
         </div>
         <div id="chat-box">
             <h2 id="chat-with">Select a user to chat</h2>
@@ -37,6 +39,5 @@ $username = $_SESSION['username'];
             </form>
         </div>
     </div>
-    <a href="logout.php">Logout</a>
 </body>
 </html>
