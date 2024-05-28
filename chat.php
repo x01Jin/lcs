@@ -19,12 +19,14 @@ $username = $_SESSION['username'];
 </head>
 <body data-userid="<?php echo htmlspecialchars($userid); ?>">
     <div id="chat-container">
-        <div id="user-list">
-            <h1>Welcome, <?php echo htmlspecialchars($username); ?>!</h1><br>
-            <h2>Users:</h2>
-            <ul id="users">
-                <!-- User list will be populated here by JavaScript -->
-            </ul>
+        <div id="user-list-container">
+            <div id="user-list">
+                <h1>Welcome, <?php echo htmlspecialchars($username); ?>!</h1><br>
+                <h2>Users:</h2>
+                <ul id="users">
+                    <!-- User list will be populated here by JavaScript -->
+                </ul>
+            </div>
             <a href="logout.php" id="logout">Logout</a>
         </div>
         <div id="chat-box">
