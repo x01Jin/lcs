@@ -5,8 +5,15 @@ include 'includes/session.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    if (loginUser($username, $password)) {
-        header("Location: chat.php");
+
+    $role = loginUser($username, $password);
+    if ($role) {
+        if ($role === 'admin') {
+            header("Location: admin.php");
+        } else {
+            header("Location: chat.php");
+        }
+        exit(); // Make sure to exit after redirection
     } else {
         echo "<p>Error: Invalid username or password.</p>";
     }

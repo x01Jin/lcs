@@ -16,7 +16,7 @@ function loginUser($username, $password) {
             $_SESSION['role'] = $role;
             updateStatus($id, 'on');
             logAction($username, 'login');
-            return true;
+            return $role; // Return the role
         }
     }
     return false;
