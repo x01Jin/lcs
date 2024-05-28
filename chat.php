@@ -14,15 +14,14 @@ $username = $_SESSION['username'];
 <head>
     <meta charset="UTF-8">
     <title>Chat</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/chatstyles.css">
     <script src="js/chat.js" defer></script>
 </head>
 <body data-userid="<?php echo htmlspecialchars($userid); ?>">
     <div id="chat-container">
         <div id="user-list">
-            <h1>Welcome, <?php echo htmlspecialchars($username); ?>!</h1>
-            ----------------------------------------------
-            <h2>Users</h2>
+            <h1>Welcome, <?php echo htmlspecialchars($username); ?>!</h1><br>
+            <h2>Users:</h2>
             <ul id="users">
                 <!-- User list will be populated here by JavaScript -->
             </ul>
