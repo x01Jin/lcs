@@ -16,14 +16,26 @@ function loginUser($username, $password) {
             $_SESSION['role'] = $role;
             updateStatus($id, 'on');
             logAction($username, 'login');
-            return $role; // Return the role
+            return $role;
+        } else {
+            return "Invalid password";
         }
+    } else {
+        return "Invalid username";
     }
-    return false;
 }
 
 function registerUser($username, $password) {
     global $conn;
+
+    $stmt = $conn->prepare("SELECT id FROM users WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $stmt->store_result();
+    if ($stmt->num_rows > 0) {
+        return false;
+    }
+
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
     $stmt->bind_param("ss", $username, $hashed_password);

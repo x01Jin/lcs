@@ -86,3 +86,9 @@ a:hover {
         padding: 15px;
     }
 }
+
+.error {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+}

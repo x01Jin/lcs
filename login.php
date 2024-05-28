@@ -6,16 +6,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $role = loginUser($username, $password);
-    if ($role) {
-        if ($role === 'admin') {
-            header("Location: admin.php");
-        } else {
-            header("Location: chat.php");
-        }
-        exit(); // Make sure to exit after redirection
+    $result = loginUser($username, $password);
+    if ($result === 'admin') {
+        header("Location: admin.php");
+    } elseif ($result === 'user') {
+        header("Location: chat.php");
     } else {
-        echo "<p>Error: Invalid username or password.</p>";
+        $error = $result;
     }
 }
 ?>
@@ -32,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="container">
         <div class="form-container">
             <h1>Welcome Back!</h1>
+            <?php if (isset($error)) { echo "<p class='error'>$error</p>"; } ?>
             <form method="POST" action="">
                 <div class="form-group">
                     <label for="username">Username:</label>

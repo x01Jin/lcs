@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (registerUser($username, $password)) {
         header("Location: login.php");
     } else {
-        echo "<p>Error: User could not be registered.</p>";
+        $error = "Error: Username already exists. Please choose a different username.";
     }
 }
 ?>
@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="container">
         <div class="form-container">
             <h1>Create an Account</h1>
+            <?php if (isset($error)) { echo "<p class='error'>$error</p>"; } ?>
             <form method="POST" action="">
                 <div class="form-group">
                     <label for="username">Username:</label>
