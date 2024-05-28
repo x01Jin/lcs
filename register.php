@@ -39,5 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <p>Already have an account? <a href="login.php">Login here</a></p>
         </div>
     </div>
+    <script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+    </script>
 </body>
 </html>
