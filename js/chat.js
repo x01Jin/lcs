@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 userList.innerHTML = '';
                 const currentUserID = parseInt(document.body.dataset.userid, 10);
                 data.forEach(user => {
-                    if (user.id !== currentUserID) {
+                    if (user.id !== currentUserID && user.role !== 'admin') {
                         const userItem = document.createElement('li');
                         userItem.textContent = user.username + (user.status === 'on' ? ' (Online)' : ' (Offline)');
                         userItem.dataset.userid = user.id;

@@ -7,7 +7,7 @@ if (!isLoggedIn()) {
     exit;
 }
 
-$stmt = $conn->prepare("SELECT id, username, status FROM users");
+$stmt = $conn->prepare("SELECT id, username, status, role FROM users");
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -16,4 +16,3 @@ while ($row = $result->fetch_assoc()) {
     $users[] = $row;
 }
 echo json_encode($users);
-?>
