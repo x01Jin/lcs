@@ -1,6 +1,6 @@
 <?php
-include 'includes/session.php';
-include 'includes/functions.php';
+include_once 'includes/session.php';
+include_once 'includes/functions.php';
 
 if (isLoggedIn()) {
     $username = $_SESSION['username'];

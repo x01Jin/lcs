@@ -1,6 +1,7 @@
 <?php
-include 'includes/db.php';
-include 'includes/session.php';
+include_once 'includes/db.php';
+include_once 'includes/session.php';
+
 if (!isLoggedIn()) {
     http_response_code(403);
     exit;

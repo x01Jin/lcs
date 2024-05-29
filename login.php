@@ -1,7 +1,7 @@
 <?php
-include 'includes/db.php';
-include 'includes/functions.php';
-include 'includes/session.php';
+include_once 'includes/db.php';
+include_once 'includes/functions.php';
+include_once 'includes/session.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];

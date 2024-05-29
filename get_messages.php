@@ -1,6 +1,6 @@
 <?php
-include 'includes/db.php';
-include 'includes/session.php';
+include_once 'includes/db.php';
+include_once 'includes/session.php';
 if (!isLoggedIn()) {
     echo json_encode([]);
     exit;

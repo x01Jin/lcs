@@ -1,7 +1,7 @@
 <?php
-include 'includes/db.php';
-include 'includes/functions.php';
-include 'includes/session.php';
+include_once 'includes/db.php';
+include_once 'includes/functions.php';
+include_once 'includes/session.php';
 
 if (!isLoggedIn() || !isAdmin()) {
     header("Location: chat.php");
@@ -59,7 +59,7 @@ handleAdminAction();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Admin Panel</title>
     <link rel="stylesheet" href="css/adminstyles.css">
@@ -102,7 +102,7 @@ handleAdminAction();
                         <input type='hidden' name='action' value='modify_user'>
                         <input type='hidden' name='user_id' value='{$row['id']}'>
                         Username: <input type='text' name='username' value='{$row['username']}'>
-                        Role: 
+                        Role:
                         <select name='role'>
                             <option value='user' ".($row['role'] == 'user' ? 'selected' : '').">User</option>
                             <option value='admin' ".($row['role'] == 'admin' ? 'selected' : '').">Admin</option>
@@ -198,5 +198,5 @@ handleAdminAction();
         }
     </script>
 </body>
-</html>
+</htmllang>
 

@@ -1,6 +1,6 @@
 <?php
-include 'includes/session.php';
-include 'includes/db.php';
+include_once 'includes/session.php';
+include_once 'includes/db.php';
 if (!isLoggedIn()) {
     header("Location: login.php");
     exit;
