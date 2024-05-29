@@ -55,6 +55,16 @@
         <form action="register.php" method="GET">
             <button type="submit" name="submit2">Register</button>
         </form>
+        <div id="about">
+            <h2>About</h2>
+            <p>This is the Lan Communications System (LCS)</p>
+            <p>It is designed to communicate between computers connected on a local area network</p>
+        </div>
+        <div id="how-to-use">
+            <h2>How to use</h2>
+            <p>-just login and select the user you want to chat with-</p>
+            <p>-you can also register to create a new account-</p>
+        </div>
     </div>
 </body>
 </html>
